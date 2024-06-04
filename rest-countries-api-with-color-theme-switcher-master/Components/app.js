@@ -92,6 +92,8 @@ fetch("../data.json")
     dtlBorder3.innerText = country.borders[2];
   });
 
+// back button functionality
+
 const backBtn = document.getElementById("back-btn");
 
 backBtn.addEventListener("click", () => {
@@ -123,5 +125,3 @@ filter.addEventListener("click", (event) => {
     })
     .catch((error) => console.error("Error:", error));
 });
-
-// back button functionality
