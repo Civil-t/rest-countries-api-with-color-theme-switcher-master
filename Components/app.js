@@ -92,14 +92,6 @@ fetch("../data.json")
     dtlBorder3.innerText = country.borders[2];
   });
 
-// back button functionality
-
-const backBtn = document.getElementById("back-btn");
-
-backBtn.addEventListener("click", () => {
-  window.location.href = "../Components/index.html";
-});
-
 // filter functionality
 filter.addEventListener("click", (event) => {
   const filter = event.target.value;
@@ -124,4 +116,16 @@ filter.addEventListener("click", (event) => {
       }
     })
     .catch((error) => console.error("Error:", error));
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const backBtn = document.getElementById("back-btn");
+
+  if (backBtn) {
+    backBtn.addEventListener("click", () => {
+      window.location.href = "../Components/index.html";
+    });
+  } else {
+    console.error("Element with id 'back-btn' not found");
+  }
 });
