@@ -117,3 +117,42 @@ filter.addEventListener("click", (event) => {
     })
     .catch((error) => console.error("Error:", error));
 });
+
+// search functionality
+
+const searchInput = document.getElementById("search");
+
+let data;
+fetch("./data.json")
+  .then((response) => response.json())
+  .then((json) => (data = json));
+
+searchInput.addEventListener("keyup", function (event) {
+  if (event.keyCode == 13) {
+    const countryName = this.value;
+    const countryData = data.find(
+      (country) => country.name.toLowerCase() === countryName.toLowerCase()
+    );
+    if (countryData) {
+      updateFirstCard(countryData);
+    }
+  }
+});
+
+// Function to update the first card to display the searched country
+function updateFirstCard(countryData) {
+  const flag1 = document.getElementById("flag1");
+  flag1.src = countryData.flag;
+
+  const countryName1 = document.getElementById("country-name1");
+  countryName1.textContent = countryData.name;
+
+  const pop1 = document.getElementById("pop1");
+  pop1.textContent = countryData.population;
+
+  const reg1 = document.getElementById("reg1");
+  reg1.textContent = countryData.region;
+
+  const cap1 = document.getElementById("cap1");
+  cap1.textContent = countryData.capital;
+}
