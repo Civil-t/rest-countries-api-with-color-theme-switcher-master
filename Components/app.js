@@ -117,15 +117,3 @@ filter.addEventListener("click", (event) => {
     })
     .catch((error) => console.error("Error:", error));
 });
-
-document.addEventListener("DOMContentLoaded", function () {
-  const backBtn = document.getElementById("back-btn");
-
-  if (backBtn) {
-    backBtn.addEventListener("click", () => {
-      window.location.href = "./index.html";
-    });
-  } else {
-    console.error("Element with id 'back-btn' not found");
-  }
-});
