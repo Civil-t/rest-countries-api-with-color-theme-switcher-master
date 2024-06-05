@@ -24,7 +24,7 @@ theme.addEventListener("click", () => {
 });
 
 // fetching and using the Countries API in homepage
-fetch("../data.json")
+fetch("./data.json")
   .then((response) => response.json())
   .then((data) => {
     for (let i = 0; i < 8; i++) {
@@ -51,13 +51,13 @@ for (let i = 0; i < countryCards.length; i++) {
   countryCards[i].addEventListener("click", function () {
     localStorage.setItem("flagSrc", countryCards[i].src);
 
-    window.location.href = "../Components/detail.html";
+    window.location.href = "./detail.html";
   });
 }
 
 const flagSrc = localStorage.getItem("flagSrc");
 
-fetch("../data.json")
+fetch("./data.json")
   .then((response) => response.json())
   .then((data) => {
     const country = data.find((country) => country.flags.png === flagSrc);
@@ -96,7 +96,7 @@ fetch("../data.json")
 filter.addEventListener("click", (event) => {
   const filter = event.target.value;
 
-  fetch("../data.json")
+  fetch("./data.json")
     .then((response) => response.json())
     .then((data) => {
       const filteredData = data.filter((country) => country.region === filter);
@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (backBtn) {
     backBtn.addEventListener("click", () => {
-      window.location.href = "../Components/index.html";
+      window.location.href = "./index.html";
     });
   } else {
     console.error("Element with id 'back-btn' not found");
